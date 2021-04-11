@@ -8,6 +8,7 @@ public class GunFPS : MonoBehaviour
 
     public Camera fpsCam;
     public GameObject gun;
+    public ParticleSystem muzzleFlash;
 
     private float nextTimetoFire = 0f;
     
@@ -23,6 +24,8 @@ public class GunFPS : MonoBehaviour
 
     void Shoot()
     {
+        muzzleFlash.Play();
+        
         RaycastHit hitInfo;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo, range))
         {
