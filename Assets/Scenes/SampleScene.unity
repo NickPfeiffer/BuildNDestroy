@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-52060
+  m_Name: pb_Mesh-1216
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5549,7 +5549,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16880
+  m_Name: pb_Mesh16882
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5806,7 +5806,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16914
+  m_Name: pb_Mesh16916
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10950,7 +10950,7 @@ MonoBehaviour:
   CamChild: {fileID: 450085962}
   indicator: {fileID: 356578901}
   build:
-  - {fileID: 7465721739987503778, guid: e5ec09d530e28824a8de37ef73cbbf75, type: 3}
+  - {fileID: 5613465266569587812, guid: 045087b7814c182479eadfb16630e213, type: 3}
   - {fileID: 1032224451696266154, guid: 15ebbc036c1e0e549ba75c7b33343045, type: 3}
   - {fileID: 7489932272825493993, guid: 89bc36c291dea2f47afdcfacd6833c87, type: 3}
 --- !u!1 &967610825
@@ -12501,10 +12501,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 69827834}
-    - target: {fileID: 2003471861259516105, guid: a31bd25362bb13b48b08925372e97247, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 69827834}
     - target: {fileID: 2513688933042552057, guid: a31bd25362bb13b48b08925372e97247, type: 3}
       propertyPath: m_Name
       value: Indicator
@@ -13095,7 +13091,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16868
+  m_Name: pb_Mesh16870
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

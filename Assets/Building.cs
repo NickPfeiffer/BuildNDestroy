@@ -44,17 +44,21 @@ public class Building : MonoBehaviour
         if (Physics.Raycast(CamChild.position, CamChild.forward, out hit, maxBuildDistance))
         {
             //dividing and multiplying by 5 because that's the localscale of the floor and so it snaps into a grid of the size of this object
-            //will probably need some tweaking later and then TODO make the localscale a variable
-            indicator.position = new Vector3(Mathf.RoundToInt(hit.point.x / 5) * 5, Mathf.RoundToInt(hit.point.y) + indicator.localScale.y,
-                Mathf.RoundToInt(hit.point.z / 5) *5);
+            //will probably need some tweaking later and then
             
-            build[chosenBlock].eulerAngles = new Vector3(0,
-                Mathf.RoundToInt(transform.eulerAngles.y / 90f) != 0
-                    ? Mathf.RoundToInt(transform.eulerAngles.y / 90f) * -90f : 0, 0);
+            
+            //TODO make the localscale a variable
+            Debug.DrawLine(CamChild.position, new Vector3(hit.point.x, hit.point.y, hit.point.z), Color.magenta);
+            
+            indicator.position = new Vector3(Mathf.RoundToInt(hit.point.x / 5) * 5 -2.5f, Mathf.RoundToInt(hit.point.y)-1 + indicator.localScale.y,
+                Mathf.RoundToInt(hit.point.z / 5) * 5 +2.5f);
 
+            //TODO rotate objects correctly
+            
             if (Input.GetButtonDown("Fire2"))
             {
-                Instantiate(build[chosenBlock], indicator.position, build[chosenBlock].rotation);
+                Debug.Log(indicator.position);
+                Instantiate(build[chosenBlock], indicator.position, Quaternion.identity);
             }
         }
         
