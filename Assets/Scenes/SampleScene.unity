@@ -5499,7 +5499,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-93416
+  m_Name: pb_Mesh-1220
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6015,7 +6015,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-95122
+  m_Name: pb_Mesh-1234
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11320,8 +11320,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CamChild: {fileID: 450085962}
-  FloorBuild: {fileID: 1095018671}
-  FloorPrefab: {fileID: 9214186729710893210, guid: 833d384c537237144876c2650ee49618, type: 3}
+  FloorBuild:
+  - {fileID: 1609622474}
+  - {fileID: 1635552475}
+  - {fileID: 1095018671}
+  FloorPrefab:
+  - {fileID: 3198813280304673798, guid: 255cff0f6d9e76d4aa2bf2efa48991b6, type: 3}
+  - {fileID: 1383067144605604732, guid: fbed55b189237534bac200e9ad1914c4, type: 3}
+  - {fileID: 9214186729710893210, guid: 833d384c537237144876c2650ee49618, type: 3}
 --- !u!1 &967610825
 GameObject:
   m_ObjectHideFlags: 0
@@ -13476,6 +13482,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1635552475 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1383067144605604732, guid: fbed55b189237534bac200e9ad1914c4, type: 3}
+  m_PrefabInstance: {fileID: 587051038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1745371173
 GameObject:
   m_ObjectHideFlags: 0
