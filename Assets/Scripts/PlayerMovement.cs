@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Sockets;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -37,8 +34,6 @@ public class PlayerMovement : MonoBehaviour
         //get move axis (W,S = Vertical, A,D = Horizontal)
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
-        
 
         Vector3 move = transform.right * x + transform.forward * z;
 
