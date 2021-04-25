@@ -4,12 +4,12 @@ public class Building : MonoBehaviour
 {
     public Transform CamChild;
 
-    public Transform [] FloorBuild;  //Indicator
-    public Transform [] FloorPrefab; //Block to Instanciate
+    public Transform [] FloorBuild;  // Indicators reference
+    public Transform [] FloorPrefab; // Blocks to instantiate
 
     private RaycastHit Hit;
     private int chosenBlock;
-    
+
     private Renderer floorRenderer;
     private Renderer stairsRenderer;
     private Renderer wallRenderer;
@@ -17,9 +17,11 @@ public class Building : MonoBehaviour
     private void Awake()
     {
         chosenBlock = 0;
+        
         floorRenderer = FloorBuild[0].GetComponent<Renderer>();
         stairsRenderer = FloorBuild[1].GetChild(0).GetComponent<Renderer>();
         wallRenderer = FloorBuild[2].GetChild(0).GetComponent<Renderer>();
+
         HideIndicatorBlocks();
     }
 
