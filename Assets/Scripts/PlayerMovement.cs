@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     
     private Vector3 velocity;
+
+    public float health;
+    public Image healthBar;
     
     // Update is called once per frame
     void Update()
@@ -58,5 +63,18 @@ public class PlayerMovement : MonoBehaviour
         //falling
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime); //multiply by Time twice, because that's how physics work
+    }
+
+    public void takeDamage(float damage)
+    {
+        health -= damage;
+        healthBar.fillAmount = health / 100;
+
+        if (health <= 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            SceneManager.LoadScene("Main Menu");
+        }
     }
 }

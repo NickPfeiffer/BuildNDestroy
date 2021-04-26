@@ -10,8 +10,11 @@ public class EnemyAi : MonoBehaviour
     public LayerMask isGround, isPlayer;
 
     public float health;
+    public GameObject healthbar;
     
     public ThirdPersonCharacter character;
+
+    public Transform weapon;
 
     void Start()
     {
@@ -44,11 +47,13 @@ public class EnemyAi : MonoBehaviour
 
         if (!playerInSightRange && !playerInAttackRange)
         {
+            ResetWeaponPos();
             Patrolling();
         }
 
         if (playerInSightRange && !playerInAttackRange)
         {
+            ResetWeaponPos();
             Chasing();
         }
 
@@ -110,14 +115,23 @@ public class EnemyAi : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         transform.LookAt(player);
+        
+        weapon.localEulerAngles = new Vector3(0, 90, 0);
+        weapon.transform.localPosition = new Vector3(0.2f, 1.2f, 0.13f);
 
         if (!alreadyAttacked)
         {
-            //shooting goes here | 4:16
+            player.gameObject.GetComponent<PlayerMovement>().takeDamage(15f);
             
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
+    }
+
+    private void ResetWeaponPos()
+    {
+        weapon.localEulerAngles = new Vector3(0, 0, 67);
+        weapon.transform.localPosition = new Vector3(0.1f, 1.28f, -0.1f);
     }
 
     private void ResetAttack()
@@ -133,5 +147,13 @@ public class EnemyAi : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        updateHealthbar();
+    }
+
+    private void updateHealthbar()
+    {
+        Vector3 oldScale = healthbar.transform.localScale;
+        healthbar.transform.localScale = new Vector3(health / 100, oldScale.y, oldScale.y);
     }
 }
