@@ -9,8 +9,9 @@ public class GunFPS : MonoBehaviour
     public Camera fpsCam;
     public GameObject gun;
     public ParticleSystem muzzleFlash;
+    public AudioSource firingSound;
 
-    private float nextTimetoFire = 0f;
+    private float nextTimetoFire = 0.2f;
     
     // Update is called once per frame
     void Update()
@@ -25,6 +26,7 @@ public class GunFPS : MonoBehaviour
     void Shoot()
     {
         muzzleFlash.Play();
+        firingSound.PlayOneShot(firingSound.clip);
         
         RaycastHit hitInfo;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo, range))
@@ -32,9 +34,14 @@ public class GunFPS : MonoBehaviour
             Debug.DrawLine(gun.transform.position, hitInfo.point, Color.green);
             Debug.Log(hitInfo.transform.name);
             
+            if (hitInfo.collider.CompareTag("Enemy"))
+            {
+                hitInfo.transform.GetComponent<EnemyAi>().AiTakeDamage(damage);
+            }
+
             Target target = hitInfo.transform.GetComponent<Target>();
-            
-            //only make object take damage/destory object if it has the target script
+
+            //only make object take damage/destroy object if it has the target script
             if (target != null)
             {
                 target.TakeDamage(damage);

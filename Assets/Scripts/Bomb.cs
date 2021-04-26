@@ -4,10 +4,8 @@ public class Bomb : MonoBehaviour
 {
     public float delay;
     public float explosionRadius;
-    public float explosionForce;
-    public float upModifier;
 
-    public LayerMask interactionMask;
+    public float damage;
 
     public GameObject particlePrefab;
     private GameObject particleInstance;
@@ -20,13 +18,23 @@ public class Bomb : MonoBehaviour
 
     void Explode()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius, interactionMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         if (colliders.Length > 0)
         {
             foreach (Collider c in colliders)
             {
-                Debug.Log(c);
-                c.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, upModifier, ForceMode.Impulse);
+                if (c.GetComponent<Collider>().CompareTag("Enemy"))
+                {
+                    c.transform.GetComponent<EnemyAi>().AiTakeDamage(damage);
+                }
+
+                Target target = c.transform.GetComponent<Target>();
+                
+                //only make object take damage/destroy object if it has the target script
+                if (target != null)
+                {
+                    target.TakeDamage(damage);
+                }
             }
         }
 
