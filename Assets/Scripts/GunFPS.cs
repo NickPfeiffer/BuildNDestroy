@@ -26,8 +26,8 @@ public class GunFPS : MonoBehaviour
     void Shoot()
     {
         muzzleFlash.Play();
-        firingSound.PlayOneShot(firingSound.clip);
-        
+        gameObject.GetComponent<AudioSource>().PlayOneShot(firingSound.clip);
+
         RaycastHit hitInfo;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hitInfo, range))
         {

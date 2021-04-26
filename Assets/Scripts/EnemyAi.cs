@@ -121,6 +121,8 @@ public class EnemyAi : MonoBehaviour
 
         if (!alreadyAttacked)
         {
+            gameObject.GetComponent<AudioSource>().Play();
+            
             player.gameObject.GetComponent<PlayerMovement>().takeDamage(15f);
             
             alreadyAttacked = true;
